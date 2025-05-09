@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跨越时空的通信</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        .page {
+            width: 100%;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #c12c1f;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .team-info {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .swiper {
+            width: 100%;
+            height: 60vh;
+        }
+        
+        .swiper-slide {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .era-title {
+            color: #c12c1f;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .era-image {
+            width: 80%;
+            max-height: 150px;
+            object-fit: contain;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .era-desc {
+            font-size: 14px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        
+        .game-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            margin-top: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        
+        .game-title {
+            color: #c12c1f;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .morse-code {
+            font-family: monospace;
+            font-size: 24px;
+            letter-spacing: 5px;
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+        
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .option {
+            padding: 8px 15px;
+            background-color: #e0e0e0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .option:hover {
+            background-color: #d0d0d0;
+        }
+        
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+            min-height: 50px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            background-color: #c12c1f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #a02020;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header animate__animated animate__fadeIn">
+            <h1>跨越时空的通信</h1>
+            <div class="team-info">彭子彤 - 2024级区块链技术与应用专业2班</div>
+        </div>
+        
+        <!-- 时间轴部分 -->
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <!-- 革命时期 -->
+                <div class="swiper-slide">
+                    <h2 class="era-title">革命时期 (1927-1949)</h2>
+                    <img src="images/R-O.jpg" alt="革命时期通信设备" class="era-image">
+                    <p class="era-desc">
+                        在革命战争年代，中国共产党主要依靠手摇电话、电报和无线电进行通信。南昌起义时，起义军使用简易通信设备协调行动。这些设备虽然简陋，但在革命斗争中发挥了重要作用。
+                    </p>
+                    <button class="btn play-game-btn" data-era="revolution">体验密码破解一</button>
+                </div>
+                
+                <!-- 建国初期 -->
+                <div class="swiper-slide">
+                    <h2 class="era-title">建国初期 (1949-1978)</h2>
+                    <img src="images/R-L.jpg" alt="建国初期通信设备" class="era-image">
+                    <p class="era-desc">
+                        新中国成立后，我国开始建设全国有线通信网络。1950年代，北京、上海等大城市建立了自动电话交换系统。这一时期，通信技术为国家建设和国防安全提供了重要保障。
+                    </p>
+                    <button class="btn play-game-btn" data-era="founding">体验密码破解二</button>
+                </div>
+                
+                <!-- 改革开放 -->
+                <div class="swiper-slide">
+                    <h2 class="era-title">改革开放 (1978-2000)</h2>
+                    <img src="images/R-G.jpg" alt="改革开放通信设备" class="era-image">
+                    <p class="era-desc">
+                        改革开放后，通信技术快速发展。1980年代出现寻呼机(BP机)，1990年代移动电话(大哥大)开始普及。1994年中国接入国际互联网，开启了信息化新时代。
+                    </p> 
+                    <button class="btn play-game-btn" data-era="reform">体验密码破解三</button>
+                </div>
+                
+                <!-- 5G时代 -->
+                <div class="swiper-slide">
+                    <h2 class="era-title">5G时代 (2019-至今)</h2>
+                    <img src="images/OIP-C.jpg" alt="5G通信" class="era-image">
+                    <p class="era-desc">
+                        进入21世纪，我国通信技术实现跨越式发展。2019年5G商用牌照发放，中国成为全球5G技术领先国家之一。从烽火台到5G，中国通信事业走过了不平凡的发展道路。
+                    </p>
+                    <button class="btn play-game-btn" data-era="modern">体验密码破解四</button>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        
+            <!-- 密码破解游戏 -->
+            <div class="game-container" id="gameContainer">
+                <h3 class="game-title">破解革命密码</h3>
+                <p>请破译以下摩斯密码，了解通信技术发展故事：</p>
+                <div class="morse-code" id="morseCode"></div>
+                <div class="options" id="options"></div>
+                <div class="result" id="result"></div>
+                <button class="btn" id="backBtn">返回时间轴</button>
+            </div>
+            
+            <div class="footer">
+                <p>红色代码先锋队 制作</p>
+                <p>传承红色基因，科技报效祖国</p>
+            </div>
+        </div>
+    
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+        <script>
+            // 初始化Swiper
+            const swiper = new Swiper('.swiper', {
+                direction: 'horizontal',
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+            
+            // 摩斯密码题目数据
+            const morseGames = {
+                revolution: {
+                    code: "--. .-. --- .-- - ....",
+                    options: ["胜利", "前进", "成长", "革命"],
+                    correct: 2,
+                    story: "1941年，中央军委三局在极端困难条件下，建立了覆盖各根据地的无线电通信网。这部'空中桥梁'为革命胜利作出了重要贡献。"
+                },
+                founding: {
+                    code: "-.-. .... .. -. .-",
+                    options: ["中国", "建设", "发展", "北京"],
+                    correct: 0,
+                    story: "1952年，北京电报大楼建成，成为新中国通信事业的标志性建筑。1956年，中国第一条长途通信电缆（北京-沈阳）建成投产。"
+                },
+                reform: {
+                    code: "..-. --- .-. -- ..--.",
+                    options: ["改革", "开放", "深圳", "经济"],
+                    correct: 1,
+                    story: "1983年，上海开通国内第一个寻呼台。1987年，广州开通我国首个移动电话网，首批用户只有700人，手机价格高达2万元。"
+                },
+                modern: {
+                    code: "..... --...",
+                    options: ["4G", "5G", "华为", "光纤"],
+                    correct: 1,
+                    story: "2019年6月，工信部发放5G商用牌照。截至2023年，我国已建成全球规模最大的5G网络，5G基站总数超过230万个。"
+                }
+            };
+            
+            // 游戏相关元素
+            const gameContainer = document.getElementById('gameContainer');
+            const morseCodeEl = document.getElementById('morseCode');
+            const optionsEl = document.getElementById('options');
+            const resultEl = document.getElementById('result');
+            const backBtn = document.getElementById('backBtn');
+            
+            // 为所有游戏按钮添加事件监听
+            document.querySelectorAll('.play-game-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const era = this.getAttribute('data-era');
+                    startGame(era);
+                });
+            });
+            
+            // 开始游戏
+            function startGame(era) {
+                const game = morseGames[era];
+                morseCodeEl.textContent = game.code;
+                optionsEl.innerHTML = '';
+                
+                // 生成选项按钮
+                game.options.forEach((option, index) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'option';
+                    btn.textContent = option;
+                    btn.addEventListener('click', function() {
+                        checkAnswer(index, game.correct, game.story);
+                    });
+                    optionsEl.appendChild(btn);
+                });
+                
+                resultEl.textContent = '';
+                document.querySelector('.swiper').classList.add('hidden');
+                gameContainer.style.display = 'block';
+            }
+            
+            // 检查答案
+            function checkAnswer(selected, correct, story) {
+                if (selected === correct) {
+                    resultEl.innerHTML = `✓ 正确！<br><br>${story}`;
+                    resultEl.style.color = 'green';
+                } else {
+                    resultEl.textContent = '✗ 不正确，请再试一次';
+                    resultEl.style.color = 'red';
+                }
+            }
+            
+            // 返回时间轴
+            backBtn.addEventListener('click', function() {
+                document.querySelector('.swiper').classList.remove('hidden');
+                gameContainer.style.display = 'none';
+            });
+        </script>
+    </body>
+    </html>
